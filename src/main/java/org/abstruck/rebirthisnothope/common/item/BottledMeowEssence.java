@@ -5,7 +5,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
-import org.abstruck.rebirthisnothope.capability.ModHealthCapability;
+import org.abstruck.rebirthisnothope.capability.ModCapability;
 import org.abstruck.rebirthisnothope.util.Utils;
 
 /**
@@ -24,7 +24,6 @@ public class BottledMeowEssence extends Item {
         if (stack.isEmpty()){
             return itemStack;
         }
-
         if (consumer instanceof PlayerEntity){
             PlayerEntity player = (PlayerEntity) consumer;
             if (!player.isCreative()){
@@ -32,10 +31,10 @@ public class BottledMeowEssence extends Item {
                     player.drop(itemStack, false);
                 }
             }
-            player.getCapability(ModHealthCapability.HEALTH_COUNT).ifPresent((cap) -> {
-                int health = cap.getHealthCount();
+            player.getCapability(ModCapability.CAP).ifPresent((cap) -> {
+                float health = cap.getHealth();
                 Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, 1);
-                cap.setHealthCount(++health);
+                cap.setHealth(++health);
             });
         }
 

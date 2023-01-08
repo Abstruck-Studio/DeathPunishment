@@ -20,24 +20,16 @@ public class CapabilityEvent {
     @SubscribeEvent
     public static void attachCapability(AttachCapabilitiesEvent<Entity> event){
         if(event.getObject() instanceof PlayerEntity){
-            event.addCapability(new ResourceLocation(RebirthIsNotHope.MOD_ID,"count"),new DeathCountCapabilityProvider());
-            event.addCapability(new ResourceLocation(RebirthIsNotHope.MOD_ID, "health"), new HealthCountCapabilityProvider());
+            event.addCapability(new ResourceLocation(RebirthIsNotHope.MOD_ID,"mod_cap"),new RINHCapabilityProvider());
         }
     }
 
     @SubscribeEvent
     public static void playerCloned(PlayerEvent.Clone event){
-        LazyOptional<IModDeathCapability> oldSpeedCap = event.getOriginal().getCapability(ModDeathCapability.DEATH_COUNT);
-        LazyOptional<IModDeathCapability> newSpeedCap = event.getPlayer().getCapability(ModDeathCapability.DEATH_COUNT);
-        LazyOptional<IModHealthCapability> oldHealthSpeedCap = event.getOriginal().getCapability(ModHealthCapability.HEALTH_COUNT);
-        LazyOptional<IModHealthCapability> newHealthSpeedCap = event.getPlayer().getCapability(ModHealthCapability.HEALTH_COUNT);
+        LazyOptional<IModCapability> oldSpeedCap = event.getOriginal().getCapability(ModCapability.CAP);
+        LazyOptional<IModCapability> newSpeedCap = event.getPlayer().getCapability(ModCapability.CAP);
         if (oldSpeedCap.isPresent() && newSpeedCap.isPresent()) {
             newSpeedCap.ifPresent((newCap) -> oldSpeedCap.ifPresent((oldCap) -> newCap.deserializeNBT(oldCap.serializeNBT())));
-        }
-        if (oldHealthSpeedCap.isPresent() && newHealthSpeedCap.isPresent()){
-            newHealthSpeedCap.ifPresent((newCap) ->
-                    oldHealthSpeedCap.ifPresent((oldCap) ->
-                            newCap.deserializeNBT(oldCap.serializeNBT())));
         }
     }
 }

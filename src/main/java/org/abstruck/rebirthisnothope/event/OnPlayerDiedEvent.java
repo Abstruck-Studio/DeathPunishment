@@ -8,8 +8,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.abstruck.rebirthisnothope.capability.ModDeathCapability;
-import org.abstruck.rebirthisnothope.capability.ModHealthCapability;
+import org.abstruck.rebirthisnothope.capability.ModCapability;
 import org.abstruck.rebirthisnothope.common.config.Config;
 import org.abstruck.rebirthisnothope.util.Utils;
 
@@ -28,7 +27,7 @@ public class OnPlayerDiedEvent {
         }
         if(entity instanceof PlayerEntity){
             PlayerEntity player = (PlayerEntity) entity;
-            player.getCapability(ModDeathCapability.DEATH_COUNT).ifPresent((cap)->{
+            player.getCapability(ModCapability.CAP).ifPresent((cap)->{
                 int count = cap.getDeathCount();
                 cap.setDeathCount(++count);
             });
@@ -41,17 +40,16 @@ public class OnPlayerDiedEvent {
         if(player.level.isClientSide || event.isEndConquered()) {
             return;
         }
-        player.getCapability(ModDeathCapability.DEATH_COUNT).ifPresent((cap)->{
+        player.getCapability(ModCapability.CAP).ifPresent((cap)->{
             int count = cap.getDeathCount();
-            player.getCapability(ModHealthCapability.HEALTH_COUNT).ifPresent((cap1) -> {
-                int health = cap1.getHealthCount();
+            player.getCapability(ModCapability.CAP).ifPresent((cap1) -> {
+                float health = cap1.getHealth();
                 if (health - 2 >= Config.MIN_HEALTH.get()){
                     health -= 2;
                 }
                 Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, health - player.getMaxHealth());
-                cap1.setHealthCount(health);
+                cap1.setHealth(health);
             });
-
             player.sendMessage(new TranslationTextComponent("text.deathLevel.tip", count), player.getUUID());
         });
     }

@@ -12,8 +12,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import org.abstruck.rebirthisnothope.capability.ModDeathCapability;
-import org.abstruck.rebirthisnothope.capability.ModHealthCapability;
+import org.abstruck.rebirthisnothope.capability.ModCapability;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -33,7 +32,7 @@ public class TotemOfPardon extends SimpleFoiledItem {
     public ActionResult<ItemStack> use(World world, PlayerEntity player, Hand handIn) {
         ItemStack stack = player.getItemInHand(handIn);
 
-        player.getCapability(ModDeathCapability.DEATH_COUNT).ifPresent((cap)->{
+        player.getCapability(ModCapability.CAP).ifPresent((cap)->{
             int count = cap.getDeathCount();
 
             if (count > 0){

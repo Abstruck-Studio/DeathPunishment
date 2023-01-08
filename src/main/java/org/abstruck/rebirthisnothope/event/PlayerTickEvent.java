@@ -1,9 +1,14 @@
 package org.abstruck.rebirthisnothope.event;
 
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.abstruck.rebirthisnothope.capability.ModCapability;
+
+import java.util.Random;
 
 /**
  * @author Goulixiaoji
@@ -13,7 +18,7 @@ public class PlayerTickEvent {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event){
         PlayerEntity player = event.player;
-        /*player.getCapability(ModCapability.DEATH_COUNT).ifPresent((cap)->{
+        player.getCapability(ModCapability.CAP).ifPresent((cap)->{
             int count = cap.getDeathCount();
             Random random = new Random();
             if (count > 5) {
@@ -26,7 +31,7 @@ public class PlayerTickEvent {
                     player.addEffect(new EffectInstance(Effects.WITHER, count % 4));
                 }
             }
-        });*/
+        });
 
     }
 }
