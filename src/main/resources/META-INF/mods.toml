@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "GNU GPL 3.0"
+
+[[mods]]
+modId = "rebirth_is_not_hope"
+version = "1.0"
+displayName = "Rebirth Is Not Hope"
+description = '''
+
+'''
+
+[[dependencies.rebirth_is_not_hope]]
+modId = "forge"
+mandatory = true
+versionRange = "[36,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.rebirth_is_not_hope]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,1.17)"
+ordering = "NONE"
+side = "BOTH"

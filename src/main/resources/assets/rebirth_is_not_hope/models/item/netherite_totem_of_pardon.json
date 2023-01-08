@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "rebirth_is_not_hope:item/netherite_totem_of_pardon"
+  }
+}
