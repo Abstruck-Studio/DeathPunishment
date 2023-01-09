@@ -1,14 +1,15 @@
 package org.abstruck.rebirthisnothope.event;
 
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.abstruck.rebirthisnothope.capability.ModCapability;
+import org.abstruck.rebirthisnothope.common.config.Config;
+import org.abstruck.rebirthisnothope.util.Utils;
 
-import java.util.Random;
 
 /**
  * @author Goulixiaoji
@@ -18,20 +19,14 @@ public class PlayerTickEvent {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event){
         PlayerEntity player = event.player;
-        player.getCapability(ModCapability.CAP).ifPresent((cap)->{
+        player.getCapability(ModCapability.CAP).ifPresent((cap) -> {
             int count = cap.getDeathCount();
-            Random random = new Random();
-            if (count > 5) {
-                int rand = random.nextInt(10000);
-                if (rand == count) {
-                    player.addEffect(new EffectInstance(Effects.WEAKNESS, count));
-                } else if (rand % 100 == count % 10) {
-                    player.addEffect(new EffectInstance(Effects.MOVEMENT_SLOWDOWN, 2));
-                } else if ((rand | count) == 114) {
-                    player.addEffect(new EffectInstance(Effects.WITHER, count % 4));
+            if (count >= Config.PUNISHMENT_LEVEL.get()){
+                String EffectId = cap.getEffectId();
+                if (!EffectId.isEmpty()){
+                    Utils.setEntityEffectByCommand(player, "effect give @s " + EffectId + " 5 1");
                 }
             }
         });
-
     }
 }

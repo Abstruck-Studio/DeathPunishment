@@ -1,6 +1,7 @@
 package org.abstruck.rebirthisnothope.capability;
 
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.common.util.INBTSerializable;
 
 /**
@@ -15,4 +16,9 @@ public interface IModCapability extends INBTSerializable<CompoundNBT> {
     float getHealth();
 
     void setHealth(float value);
+
+    String getEffectId();
+
+    void setEffectId(String id);
+
 }

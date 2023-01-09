@@ -9,10 +9,12 @@ import net.minecraft.nbt.CompoundNBT;
 public class RINHCapability implements IModCapability {
     private int deathCount;
     private float health;
+    private String effectId;
 
     public RINHCapability(){
         deathCount = 0;
         health = 20;
+        effectId = "";
     }
 
     @Override
@@ -36,10 +38,21 @@ public class RINHCapability implements IModCapability {
     }
 
     @Override
+    public String getEffectId() {
+        return effectId;
+    }
+
+    @Override
+    public void setEffectId(String id) {
+        effectId = id;
+    }
+
+    @Override
     public CompoundNBT serializeNBT() {
         CompoundNBT tag = new CompoundNBT();
         tag.putInt("death_count", deathCount);
         tag.putFloat("health",health);
+        tag.putString("effectId", effectId);
         return tag;
     }
 
@@ -47,5 +60,6 @@ public class RINHCapability implements IModCapability {
     public void deserializeNBT(CompoundNBT nbt) {
         deathCount = nbt.getInt("death_count");
         health = nbt.getFloat("health");
+        effectId = nbt.getString("effectId");
     }
 }

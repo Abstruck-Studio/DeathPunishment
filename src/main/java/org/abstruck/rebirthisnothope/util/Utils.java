@@ -1,5 +1,6 @@
 package org.abstruck.rebirthisnothope.util;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.ModifiableAttributeInstance;
@@ -21,6 +22,15 @@ public class Utils {
                 valueInstance.removeModifier(attributeId);
             }
             valueInstance.addPermanentModifier(new AttributeModifier(attributeId, attributeName, value, AttributeModifier.Operation.ADDITION));
+        }
+    }
+
+    public static void setEntityEffectByCommand(Entity entity, String command) {
+        if (!entity.level.isClientSide && entity.getServer() != null){
+            entity.getServer().getCommands().performCommand(
+                    entity.createCommandSourceStack().withSuppressedOutput().withPermission(4),
+                    command
+            );
         }
     }
 }

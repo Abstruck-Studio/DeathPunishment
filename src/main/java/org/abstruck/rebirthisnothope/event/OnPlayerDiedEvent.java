@@ -8,9 +8,12 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.abstruck.rebirthisnothope.RebirthIsNotHope;
 import org.abstruck.rebirthisnothope.capability.ModCapability;
 import org.abstruck.rebirthisnothope.common.config.Config;
 import org.abstruck.rebirthisnothope.util.Utils;
+
+import java.util.Random;
 
 
 /**
@@ -42,14 +45,16 @@ public class OnPlayerDiedEvent {
         }
         player.getCapability(ModCapability.CAP).ifPresent((cap)->{
             int count = cap.getDeathCount();
-            player.getCapability(ModCapability.CAP).ifPresent((cap1) -> {
-                float health = cap1.getHealth();
-                if (health - 2 >= Config.MIN_HEALTH.get()){
-                    health -= 2;
-                }
-                Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, health - player.getMaxHealth());
-                cap1.setHealth(health);
-            });
+
+            float health = cap.getHealth();
+            if (health - 2 >= Config.MIN_HEALTH.get()){
+                health -= 2;
+            }
+            Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, health - player.getMaxHealth());
+            cap.setHealth(health);
+            Random random = new Random();
+            cap.setEffectId(RebirthIsNotHope.EFFECTS.get(random.nextInt(RebirthIsNotHope.EFFECTS.size())));
+
             player.sendMessage(new TranslationTextComponent("text.deathLevel.tip", count), player.getUUID());
         });
     }
