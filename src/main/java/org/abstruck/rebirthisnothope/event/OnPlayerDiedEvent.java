@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.abstruck.rebirthisnothope.RebirthIsNotHope;
+import org.abstruck.rebirthisnothope.DeathPunishment;
 import org.abstruck.rebirthisnothope.capability.ModCapability;
 import org.abstruck.rebirthisnothope.common.config.Config;
 import org.abstruck.rebirthisnothope.util.Utils;
@@ -53,7 +53,7 @@ public class OnPlayerDiedEvent {
             Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, health - player.getMaxHealth());
             cap.setHealth(health);
             Random random = new Random();
-            cap.setEffectId(RebirthIsNotHope.EFFECTS.get(random.nextInt(RebirthIsNotHope.EFFECTS.size())));
+            cap.setEffectId(DeathPunishment.EFFECTS.get(random.nextInt(DeathPunishment.EFFECTS.size())));
 
             player.sendMessage(new TranslationTextComponent("text.deathLevel.tip", count), player.getUUID());
         });

@@ -3,21 +3,21 @@ loaderVersion = "[36,)"
 license = "GNU GPL 3.0"
 
 [[mods]]
-modId = "rebirth_is_not_hope"
+modId = "death_punishment"
 version = "1.0"
-displayName = "Rebirth Is Not Hope"
+displayName = "Death Punishment"
 description = '''
 
 '''
 
-[[dependencies.rebirth_is_not_hope]]
+[[dependencies.death_punishment]]
 modId = "forge"
 mandatory = true
 versionRange = "[36,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.rebirth_is_not_hope]]
+[[dependencies.death_punishment]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.16.5,1.17)"

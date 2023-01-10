@@ -1,13 +1,19 @@
 package org.abstruck.rebirthisnothope.common.item;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
-import org.abstruck.rebirthisnothope.RebirthIsNotHope;
+import org.abstruck.rebirthisnothope.DeathPunishment;
 import org.abstruck.rebirthisnothope.capability.ModCapability;
 import org.abstruck.rebirthisnothope.util.Utils;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 /**
  * @author Goulixiaoji
@@ -29,7 +35,7 @@ public class BottledMeowEssence extends Item {
                 health += 2;
                 Utils.setPlayerAttribute(player, Attributes.MAX_HEALTH, Utils.RINH_MODIFY_HEALTH_ID, Utils.RINH_MODIFY_HEALTH_NAME, health - 20);
                 cap.setHealth(health);
-                RebirthIsNotHope.LOGGER.debug(health);
+                DeathPunishment.LOGGER.debug(health);
             });
             if (stack.isEmpty()){
                 return itemStack;
@@ -51,8 +57,14 @@ public class BottledMeowEssence extends Item {
     }
 
     @Override
-    public UseAction getUseAnimation(ItemStack p_77661_1_) {
+    public UseAction getUseAnimation(ItemStack stack) {
         return UseAction.DRINK;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> textComponents, ITooltipFlag flag) {
+        super.appendHoverText(stack, world, textComponents, flag);
+        textComponents.add(new TranslationTextComponent("item.rebirth_is_not_hope.bottled_meow_essence.tip"));
     }
 
 }

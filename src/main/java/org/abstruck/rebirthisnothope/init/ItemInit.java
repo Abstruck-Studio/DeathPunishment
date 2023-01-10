@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.abstruck.rebirthisnothope.RebirthIsNotHope;
+import org.abstruck.rebirthisnothope.DeathPunishment;
 import org.abstruck.rebirthisnothope.common.item.BottledMeowEssence;
 import org.abstruck.rebirthisnothope.common.item.TotemOfPardon;
 
@@ -12,7 +12,7 @@ import org.abstruck.rebirthisnothope.common.item.TotemOfPardon;
  * @author Goulixiaoji
  */
 public class ItemInit {
-    public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, RebirthIsNotHope.MOD_ID);
+    public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, DeathPunishment.MOD_ID);
 
     public static final RegistryObject<Item> MEOW_ESSENCE = REGISTER.register("bottled_meow_essence", BottledMeowEssence::new);
     public static final RegistryObject<Item> TOTEM_OF_PARDON = REGISTER.register("totem_of_pardon", ()-> new TotemOfPardon(1));

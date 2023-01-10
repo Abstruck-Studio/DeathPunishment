@@ -1,0 +1,12 @@
+{
+  "text.deathLevel.tip": "当前你的死亡等级是%d级。",
+  "item.death_punishment.bottled_meow_essence": "瓶装喵呜精华",
+  "item.death_punishment.totem_of_pardon": "赦免图腾",
+  "item.death_punishment.iron_totem_of_pardon": "镶铁赦免图腾",
+  "item.death_punishment.gold_totem_of_pardon": "镶金赦免图腾",
+  "item.death_punishment.diamond_totem_of_pardon": "镶钻石赦免图腾",
+  "item.death_punishment.emerald_totem_of_pardon": "镶绿宝石赦免图腾",
+  "item.death_punishment.netherite_totem_of_pardon": "镶下界合金赦免图腾",
+  "item.death_punishment.totem_of_pardon.tip": "死亡等级-%d。",
+  "item.death_punishment.bottled_meow_essence.tip": "饮用后你可以获得一颗心。"
+}

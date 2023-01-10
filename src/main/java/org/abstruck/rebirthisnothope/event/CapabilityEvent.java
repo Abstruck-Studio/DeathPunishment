@@ -8,7 +8,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.abstruck.rebirthisnothope.RebirthIsNotHope;
+import org.abstruck.rebirthisnothope.DeathPunishment;
 import org.abstruck.rebirthisnothope.capability.*;
 
 /**
@@ -20,7 +20,7 @@ public class CapabilityEvent {
     @SubscribeEvent
     public static void attachCapability(AttachCapabilitiesEvent<Entity> event){
         if(event.getObject() instanceof PlayerEntity){
-            event.addCapability(new ResourceLocation(RebirthIsNotHope.MOD_ID,"mod_cap"),new RINHCapabilityProvider());
+            event.addCapability(new ResourceLocation(DeathPunishment.MOD_ID,"mod_cap"),new DPCapabilityProvider());
         }
     }
 
