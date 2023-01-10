@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#G#",
+    "###"
+  ],
+  "key": {
+    "G": {
+      "item": "death_punishment:emerald_totem_of_pardon"
+    },
+    "#": {
+      "item": "minecraft:netherite_scrap"
+    }
+  },
+  "result": {
+    "item": "death_punishment:netherite_totem_of_pardon",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "text.deathLevel.tip": "Now Your Death Level is %d.",
+  "item.death_punishment.bottled_meow_essence": "Bottled Meow Essence",
+  "item.death_punishment.totem_of_pardon": "Totem Of Pardon",
+  "item.death_punishment.iron_totem_of_pardon": "Iron Totem Of Pardon",
+  "item.death_punishment.gold_totem_of_pardon": "Gold Totem Of Pardon",
+  "item.death_punishment.diamond_totem_of_pardon": "Diamond Totem Of Pardon",
+  "item.death_punishment.emerald_totem_of_pardon": "Emerald Totem Of Pardon",
+  "item.death_punishment.netherite_totem_of_pardon": "Netherite Totem Of Pardon",
+  "item.death_punishment.totem_of_pardon.tip": "Death Level -%d.",
+  "item.death_punishment.bottled_meow_essence.tip": "After drinking you can get a heart."
+}

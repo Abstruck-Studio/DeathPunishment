@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "death_punishment:item/bottled_meow_essence"
+  }
+}

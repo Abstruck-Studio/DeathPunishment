@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "death_punishment:item/diamond_totem_of_pardon"
+  }
+}
