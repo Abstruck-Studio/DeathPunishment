@@ -2,7 +2,7 @@
 ![forks](https://img.shields.io/github/forks/Abstruck-Studio/RebirthIsNotHope?style=for-the-badge)
 ![watchers](https://img.shields.io/github/watchers/Abstruck-Studio/RebirthIsNotHope?style=for-the-badge)
 ![license](https://img.shields.io/github/license/Abstruck-Studio/RebirthIsNotHope?style=for-the-badge)
-# RebirthIsNotHope
+# Death Punishment
 
 ## Introduction
 
