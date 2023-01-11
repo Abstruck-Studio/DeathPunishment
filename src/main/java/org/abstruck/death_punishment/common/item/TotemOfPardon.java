@@ -50,6 +50,6 @@ public class TotemOfPardon extends SimpleFoiledItem {
     @Override
     public void appendHoverText(ItemStack stack, @Nullable World world, List<ITextComponent> list, ITooltipFlag flag) {
         super.appendHoverText(stack, world, list, flag);
-        list.add(new TranslationTextComponent("item.rebirth_is_not_hope.totem_of_pardon.tip", VALUE - stack.getDamageValue()));
+        list.add(new TranslationTextComponent("item.death_punishment.totem_of_pardon.tip", VALUE - stack.getDamageValue()));
     }
 }
